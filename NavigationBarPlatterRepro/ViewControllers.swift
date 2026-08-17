@@ -159,7 +159,6 @@ private final class DestinationViewController: UIViewController, UITableViewData
         super.init(nibName: nil, bundle: nil)
 
         navigationItem.largeTitleDisplayMode = .never
-        navigationItem.rightBarButtonItems = [overflowButton, shareButton]
     }
 
     @available(*, unavailable)
@@ -188,6 +187,11 @@ private final class DestinationViewController: UIViewController, UITableViewData
         DispatchQueue.main.asyncAfter(deadline: .now() + 5) { [weak self] in
             self?.navigationItem.title = "Navigation Bar Transition"
         }
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        navigationItem.rightBarButtonItems = [overflowButton, shareButton]
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
